@@ -15,7 +15,7 @@ class DataETL:
         for file in os.listdir(path):
             df = pd.read_excel(path+file)
             all_data = pd.concat([all_data, df], ignore_index=True)
-        
+        all_data = all_data.rename(columns={all_data.columns[0]:'Geographic Area'})
         return all_data
     
     @staticmethod
